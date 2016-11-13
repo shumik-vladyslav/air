@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div>
+  <ul>
+    <li *ngFor="let item of airportsInCountry">
+      <span (click)="selectAirport(item)">
+        {{item.name}}
+      </span>
+    </li>
+  </ul>
+  ------------------
+  <ul>
+    <li *ngFor="let item of country">
+      <span (click)="selectCountry(item)">
+        {{item.name}}
+      </span>
+    </li>
+  </ul>
+</div>
