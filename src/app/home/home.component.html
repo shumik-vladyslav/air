@@ -1,1 +1,7 @@
+<div *ngFor="let item of flights">dateFrom:{{item.dateFrom | date}},{{item.dateTo | date}},{{item.price}} {{item.currency}}</div>
+<button (click)="find()">Search</button>
+<date-picker (dateUpdate)="dateStart($event)"></date-picker>
+<date-picker (dateUpdate)="dateEnd($event)"></date-picker>
 <select-airport></select-airport>
+
+

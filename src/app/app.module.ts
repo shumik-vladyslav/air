@@ -9,11 +9,14 @@ import {HomeComponent} from './home/home.component';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {SelectAirportComponent} from "./shared/directives/select-airport/select-airport.component";
 import {FlightBookingSelector} from "./shared/api/flight-booking-selector";
+import { MyDatePickerModule } from 'mydatepicker';
+import {DatePickerComponent} from "./shared/directives/date-picker/date-picker.component";
+import {GetFlights} from "./shared/api/get-flights";
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, SelectAirportComponent],
-  imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig)],
-  providers   : [{provide: LocationStrategy, useClass: HashLocationStrategy}, FlightBookingSelector],
+  declarations: [AppComponent, HomeComponent, SelectAirportComponent, DatePickerComponent],
+  imports     : [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(rootRouterConfig), MyDatePickerModule],
+  providers   : [{provide: LocationStrategy, useClass: HashLocationStrategy}, FlightBookingSelector, GetFlights],
   bootstrap   : [AppComponent]
 })
 export class AppModule {
