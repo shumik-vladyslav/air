@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {FlightBookingSelector} from "../shared/api/flight-booking-selector";
 import {GetFlights} from "../shared/api/get-flights";
 
 @Component({
@@ -14,7 +13,11 @@ export class HomeComponent {
 
   flights;
 
-  constructor(private flightBookingSelector: FlightBookingSelector, private getFlights: GetFlights){
+  portFrom;
+
+  portTo;
+
+  constructor(private getFlights: GetFlights){
 
   }
 
@@ -28,10 +31,20 @@ export class HomeComponent {
     console.log(date)
   }
 
+  selectAirportFrom(port){
+    console.log(port)
+    this.portFrom = port;
+  }
+
+  selectAirportTo(port){
+    console.log(port)
+    this.portTo = port;
+  }
+
   find(){
     this.flights = [];
 
-    this.getFlights.getFlights(this.start, this.end).subscribe((date) => {
+    this.getFlights.getFlights(this.start, this.end, this.portFrom, this.portTo).subscribe((date) => {
       console.log(date);
       this.flights = date.flights;
     });

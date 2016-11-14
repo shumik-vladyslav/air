@@ -29,7 +29,6 @@ ul{
   margin-left: 10px;
   border: 1px solid gainsboro;
   border-radius: 12px;
-  display: none;
 }
 .list-country{
   column-count: 3;
@@ -85,6 +84,9 @@ ul{
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #9DD1F8;
+}
+.select{
+  background: #5095fd;
 }
 @media(max-width: 771px) {
   .from {

@@ -1,65 +1,36 @@
-<div class="col-lg-12 wrapper">
+<div class="col-lg-3 col-md-3 col-sm-3 from">
+  <label>{{label}}:</label>
+  <input type="text" [(ngModel)]="airportName" (click)="stopPropagationForBodyClick($event); showList = true">
+</div>
+<div *ngIf="showList" class="list col-lg-10 col-md-10 col-sm-10 col-xs-11">
   <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-3 from">
-      <label>From:</label>
-      <input type="text">
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-3 fromTo">
-      <label>To:</label>
-      <input type="text">
-    </div>
-    <div class="list col-lg-10 col-md-10 col-sm-10 col-xs-11">
+    <div class="country col-lg-9 col-md-9 col-sm-9">
+      <h3>Pick a country</h3>
       <div class="row">
-        <div class="country col-lg-9 col-md-9 col-sm-9">
-          <h3>Pick a country</h3>
-          <div class="row">
-            <div class="col-lg-12 list-country">
-              <ul>
-                <li *ngFor="let item of country">
-                  <span (click)="selectCountry(item)">
-                    {{item.name}}
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <div class="col-lg-12 list-country">
+          <ul>
+            <li [ngClass]="{'select': item.name === countryName}" *ngFor="let item of country" (click)=" stopPropagationForBodyClick($event); selectCountry(item);">
+              <span>
+                {{item.name}}
+              </span>
+            </li>
+          </ul>
         </div>
-        <div class="airports col-lg-3 col-md-3 col-sm-3">
-          <h3>Pick an airport</h3>
-          <div class="row">
-            <div class="col-lg-12 list-airports">
-              <ul>
-                <li *ngFor="let item of airportsInCountry">
-                  <span (click)="selectAirport(item)">
-                    {{item.name}}
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
+      </div>
+    </div>
+    <div class="airports col-lg-3 col-md-3 col-sm-3">
+      <h3>Pick an airport</h3>
+      <div class="row">
+        <div class="col-lg-12 list-airports">
+          <ul>
+            <li [ngClass]="{'select': item.name === airportName}" *ngFor="let item of airportsInCountry" (click)="selectAirport(item)">
+              <span>
+                {{item.name}}
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-<!--<div>-->
-  <!--<ul>-->
-    <!--<li *ngFor="let item of airportsInCountry">-->
-      <!--<span (click)="selectAirport(item)">-->
-        <!--{{item.name}}-->
-      <!--</span>-->
-    <!--</li>-->
-  <!--</ul>-->
-  <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
-  <!--<ul>-->
-    <!--<li *ngFor="let item of country">-->
-      <!--<span (click)="selectCountry(item)">-->
-        <!--{{item.name}}-->
-      <!--</span>-->
-    <!--</li>-->
-  <!--</ul>-->
-<!--</div>-->

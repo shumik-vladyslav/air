@@ -1,3 +1,4 @@
+
 .wrapper-date{
   background-color: #2994E6;
   padding: 10px;
@@ -6,6 +7,12 @@
 }
 .wrapper-date date-picker{
   margin: 13px;
+}
+.wrapper{
+  margin-top: 30px;
+  background-color: #2994E6;
+  border-radius: 10px 10px 0 0;
+  font-family: 'Roboto', sans-serif;
 }
 .wrapper-date button{
   padding: 8px 30px;

@@ -1,6 +1,11 @@
 <div class="container">
   <div class="row">
-    <select-airport></select-airport>
+    <div class="col-lg-12 wrapper">
+      <div class="row">
+        <select-airport [label]="'From'" (selectPort)="selectAirportFrom($event)"></select-airport>
+        <select-airport [label]="'To'" (selectPort)="selectAirportTo($event)"></select-airport>
+      </div>
+    </div>
     <div class="col-lg-12 wrapper-date">
       <date-picker (dateUpdate)="dateStart($event)"></date-picker>
       <date-picker (dateUpdate)="dateEnd($event)"></date-picker>
@@ -12,7 +17,6 @@
         <span><i class="fa fa-plane" aria-hidden="true"></i>dateFrom:{{item.dateFrom | date}}</span>
         <span><i class="fa fa-plane" aria-hidden="true"></i>dateTo:{{item.dateTo | date}}</span>
         <span><i class="fa fa-money" aria-hidden="true"></i>Price:{{item.price}}</span>
-        <!--dateFrom:{{item.dateFrom | date}},dateTo:{{item.dateTo | date}},Price:{{item.price}} {{item.currency}}-->
       </div>
     </div>
   </div>
