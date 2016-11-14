@@ -12,7 +12,6 @@ export class FlightBookingSelector {
 
   constructor(private http: Http) {
     http.get('https://murmuring-ocean-10826.herokuapp.com/en/api/2/forms/flight-booking-selector/').subscribe((data) => {
-      console.log(data.json())
       this.data = data.json();
       this.countriesSubject.next(this.data["countries"]);
       this.airportsSubject.next(this.data["airports"]);
@@ -26,5 +25,9 @@ export class FlightBookingSelector {
 
   getAirports(){
     return this.data["airports"];
+  }
+
+  getMessages(){
+    return this.data["messages"];
   }
 }

@@ -1,5 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, ViewContainerRef, ViewEncapsulation} from '@angular/core';
 import {GetFlights} from "../shared/api/get-flights";
+import { Overlay } from 'angular2-modal';
+import { Modal } from 'angular2-modal/plugins/bootstrap';
+import {FlightBookingSelector} from "../shared/api/flight-booking-selector";
 
 @Component({
   selector: 'home',
@@ -17,36 +20,48 @@ export class HomeComponent {
 
   portTo;
 
-  constructor(private getFlights: GetFlights){
-
+  constructor(private flightBookingSelector: FlightBookingSelector, private getFlights: GetFlights, overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal){
+    overlay.defaultViewContainer = vcRef;
   }
 
   dateStart(date){
-    console.log(date)
     this.start = date;
   }
 
   dateEnd(date){
     this.end = date;
-    console.log(date)
   }
 
   selectAirportFrom(port){
-    console.log(port)
     this.portFrom = port;
   }
 
   selectAirportTo(port){
-    console.log(port)
     this.portTo = port;
   }
 
   find(){
+    if(!this.start)
+      this.openModal("choose_departure_airport");
+
+    if(!this.portTo)
+      this.openModal("choose_return_date");
+
     this.flights = [];
 
     this.getFlights.getFlights(this.start, this.end, this.portFrom, this.portTo).subscribe((date) => {
-      console.log(date);
       this.flights = date.flights;
     });
+  }
+
+  openModal(key){
+    let messages = this.flightBookingSelector.getMessages();
+
+    this.modal.alert()
+      .size('lg')
+      .showClose(true)
+      .title('Warning')
+      .body(`<b>${messages[key]}</b>`)
+      .open();
   }
 }
