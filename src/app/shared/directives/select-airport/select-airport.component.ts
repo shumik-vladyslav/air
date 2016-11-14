@@ -3,7 +3,8 @@ import {FlightBookingSelector} from "../../api/flight-booking-selector";
 
 @Component({
   selector: 'select-airport',
-  templateUrl: './select-airport.component.html'
+  templateUrl: './select-airport.component.html',
+  styleUrls: ['./select-airport.css'],
 })
 export class SelectAirportComponent {
   country;

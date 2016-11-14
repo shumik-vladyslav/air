@@ -1,7 +1,20 @@
-<div *ngFor="let item of flights">dateFrom:{{item.dateFrom | date}},{{item.dateTo | date}},{{item.price}} {{item.currency}}</div>
-<button (click)="find()">Search</button>
-<date-picker (dateUpdate)="dateStart($event)"></date-picker>
-<date-picker (dateUpdate)="dateEnd($event)"></date-picker>
-<select-airport></select-airport>
-
+<div class="container">
+  <div class="row">
+    <select-airport></select-airport>
+    <div class="col-lg-12 wrapper-date">
+      <date-picker (dateUpdate)="dateStart($event)"></date-picker>
+      <date-picker (dateUpdate)="dateEnd($event)"></date-picker>
+      <button (click)="find()">Search</button>
+    </div>
+    <div class="col-lg-12 searchResult">
+      <div class="col-lg-3 col-md-3 col-sm-4 result" *ngFor="let item of flights">
+        <span>Flight details</span>
+        <span><i class="fa fa-plane" aria-hidden="true"></i>dateFrom:{{item.dateFrom | date}}</span>
+        <span><i class="fa fa-plane" aria-hidden="true"></i>dateTo:{{item.dateTo | date}}</span>
+        <span><i class="fa fa-money" aria-hidden="true"></i>Price:{{item.price}}</span>
+        <!--dateFrom:{{item.dateFrom | date}},dateTo:{{item.dateTo | date}},Price:{{item.price}} {{item.currency}}-->
+      </div>
+    </div>
+  </div>
+</div>
 

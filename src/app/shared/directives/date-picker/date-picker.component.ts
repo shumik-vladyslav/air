@@ -2,6 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'date-picker',
+  styleUrls: ['./date-picker.css'],
   templateUrl: './date-picker.component.html'
 })
 export class DatePickerComponent {
@@ -13,7 +14,7 @@ export class DatePickerComponent {
     dateFormat: 'yyyy-mm-dd',
     firstDayOfWeek: 'mo',
     sunHighlight: true,
-    height: '34px',
+    height: '36px',
     width: '260px',
     inline: false,
     disableUntil: {year: 2016, month: 8, day: 10},
