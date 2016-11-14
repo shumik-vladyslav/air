@@ -90,10 +90,13 @@ ul{
 }
 @media(max-width: 771px) {
   .from {
-    margin-left: 0!important;
+    margin-left: 0;
   }
   .country ul {
     padding-left: 0;
+  }
+  h3{
+    margin-top: 0;
   }
 }
 @media(max-width: 991px){

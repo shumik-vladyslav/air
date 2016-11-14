@@ -29,10 +29,11 @@
   background-color: #C79E04;
 }
 .result{
-  border: 1px solid black;
+  border: 1px solid gainsboro;
   padding: 0;
   margin-top: 20px;
   margin-left: 10px;
+  border-radius: 10px;
 }
 .searchResult span{
   display: block;
@@ -43,7 +44,7 @@
 .searchResult span:nth-child(1){
   padding: 10px 20px;
   text-align: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gainsboro;
 }
 .searchResult span:nth-child(2){
   color: blue;
